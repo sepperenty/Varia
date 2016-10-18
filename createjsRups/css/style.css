@@ -1,0 +1,126 @@
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
+body {
+	font-family: 'Bree Serif', serif;
+	font-size: 100%;
+	background-color:#D4D4D4;
+}
+
+input, button, #progbar {
+	font-family: inherit;
+	font-size: inherit;
+	border-radius: 5px;
+}
+
+.hide { display: none; }
+
+#controls > div {
+	position: relative;
+	height:60px;
+}
+
+#firstname, #progbar {
+	position: absolute;
+	left:0;
+	top:0;
+}
+
+#firstname {
+	border-width: 0;
+	line-height: 50px;
+	padding: 0 15px;
+	width: 170px;
+}
+
+
+#progbar {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+    appearance: none;
+    width:200px;
+    height: 50px;
+	border-radius: 5px;
+	border-width: 0;
+}
+
+#progbar::-moz-progress-bar {
+	width:200px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #74AB5B;
+}
+
+#firstname,
+#progbar::-webkit-progress-bar
+{
+	background-color: #fff;
+}
+
+#progbar::-webkit-progress-bar {
+	padding:0;
+}
+
+#progbar::-webkit-progress-value{ 
+	background-color: #74AB5B;
+}
+
+#firstname,
+#progbar::-webkit-progress-bar,
+#progbar::-webkit-progress-value {
+	border-radius: 5px;
+	height: 50px;
+}
+
+input:focus, button:focus {
+	outline: none;
+}
+
+h1 {
+	font-size: 2em;
+	margin-bottom: 0.5em;
+}
+
+button {
+	border:none;
+	padding: 0.5em 1em;
+	background-color: #74AB5B;
+	color: #fff;
+	margin-top: 0.5em;
+}
+
+button:active {
+	background-color: #4E733D;
+	margin-left: 0.1em;
+	margin-top: 0.6em;
+}
+
+button[disabled] {
+	background-color: #606D56;
+	color: #899185;
+}
+
+#canvas {
+	background-color: #74AB5B;
+}
+
+#canvas, #controls {
+	float: left;
+}
+
+#app:before, #app.after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+
+#app:after {
+	clear:both;
+}
+
+#controls {
+	margin-left: 30px;
+}
+
+div > input {
+	margin-bottom: 10px;
+}

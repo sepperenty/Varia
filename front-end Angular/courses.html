@@ -1,0 +1,18 @@
+
+	<div id="courses"  ng-show="show && !showAddLog"  >
+
+	
+	<button class="courseButton" 
+			ng-repeat="course in coursesCtrl.courseTable.courses"  
+			ng-click="coursesCtrl.showLogs(course.vakcode, course.periodecode, course.vaknaam)"
+			> 
+
+			{{course.vaknaam}}
+		</button>
+	</div>
+	
+
+
+	<div ng-show="showAdd">
+		<h1>add a new log</h1>
+	</div>

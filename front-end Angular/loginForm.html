@@ -1,0 +1,24 @@
+<div id="loginSection" ng-hide="hideLogin" >
+	<div id="loginContent">
+	
+		<form id="loginForm" ng-submit="loginCtrl.submit()"  novalid> 
+			<div class="form-group">
+			<label for="setudentId" class="label-text">Student Number</label>
+
+			<input class="inlogInput" ng-model="loginCtrl.userInfo.studentId" type="text" name="studentId" id="studentId" required>
+
+			</div>
+			<div class="form-group">
+			<label for="studentInit" class="label-text">Initials</label>
+
+			<input class="inlogInput" ng-model="loginCtrl.userInfo.studentInit"  type="text" name="studentInit" id="studentInit" required>
+
+			</div>
+			<input type="submit" name="loginButton" class="button" id="loginButton" value="login">
+		</form>
+
+
+
+	</div>
+
+	</div> 

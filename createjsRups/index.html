@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>De Spellende Rups</title>
+
+	<link href='css/style.css' rel='stylesheet' type='text/css'>
+	<script src="libs/createjs-2014.12.12.min.js"></script>
+	<script src="libs/movieclip-0.7.1.min.js"></script>
+	<script src="js/Rups.js"></script>
+</head>
+<script>
+var canvas;
+var stage;
+var queue;
+var button;
+var input;
+var text;
+var head;
+var lijf =  [];
+var soundNumber = 0;
+var eyes;
+var nextBlinkTime = new Date().getTime() + 1000 + (Math.random() * 2000);
+var lijfCanWiggle = true;
+
+	function preload () {
+
+		queue = new createjs.LoadQueue(true);
+		queue.installPlugin(createjs.Sound);
+		queue.on("progress", onProgress);
+		queue.on("complete", init);
+		queue.loadManifest([
+			{ src: "sounds/alpha_a.mp3", id:"alpha_a"},
+			{ src: "sounds/alpha_b.mp3", id:"alpha_b"},
+			{ src: "sounds/alpha_c.mp3", id:"alpha_c"},
+			{ src: "sounds/alpha_d.mp3", id:"alpha_d"},
+			{ src: "sounds/alpha_e.mp3", id:"alpha_e"},
+			{ src: "sounds/alpha_f.mp3", id:"alpha_f"},
+			{ src: "sounds/alpha_g.mp3", id:"alpha_g"},
+			{ src: "sounds/alpha_h.mp3", id:"alpha_h"},
+			{ src: "sounds/alpha_i.mp3", id:"alpha_i"},
+			{ src: "sounds/alpha_j.mp3", id:"alpha_j"},
+			{ src: "sounds/alpha_k.mp3", id:"alpha_k"},
+			{ src: "sounds/alpha_l.mp3", id:"alpha_l"},
+			{ src: "sounds/alpha_m.mp3", id:"alpha_m"},
+			{ src: "sounds/alpha_n.mp3", id:"alpha_n"},
+			{ src: "sounds/alpha_o.mp3", id:"alpha_o"},
+			{ src: "sounds/alpha_p.mp3", id:"alpha_p"},
+			{ src: "sounds/alpha_q.mp3", id:"alpha_q"},
+			{ src: "sounds/alpha_r.mp3", id:"alpha_r"},
+			{ src: "sounds/alpha_s.mp3", id:"alpha_s"},
+			{ src: "sounds/alpha_t.mp3", id:"alpha_t"},
+			{ src: "sounds/alpha_u.mp3", id:"alpha_u"},
+			{ src: "sounds/alpha_v.mp3", id:"alpha_v"},
+			{ src: "sounds/alpha_w.mp3", id:"alpha_w"},
+			{ src: "sounds/alpha_x.mp3", id:"alpha_x"},
+			{ src: "sounds/alpha_y.mp3", id:"alpha_y"},
+			{ src: "sounds/alpha_z.mp3", id:"alpha_z"},
+			{ src: "images/lower_body.png", id: "lowerBody"}
+
+			]);
+	}
+
+	function onProgress(e){
+		progbar.value = (e.loaded * 100);
+	}
+
+
+	function init(){
+
+
+		var bar = document.getElementById("progbar");
+		progbar.classList.add("hide");
+
+		canvas = document.getElementById("canvas");
+		stage = new createjs.Stage(canvas);
+
+		button = document.getElementById("submit");
+		button.addEventListener("click", onButtonClick);
+		createRups();
+		input = document.getElementById("firstname");
+
+			createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", onTick);
+	}
+
+
+
+	function createRups(){
+
+		var stronk = new lib.stronk();
+		stronk.x = 140;
+		stronk.y = 550;
+		stage.addChild(stronk);
+
+		lowerBody = new createjs.Bitmap(queue.getResult("lowerBody"));
+		lowerBody.x = 70;
+		lowerBody.y = 450;
+		lowerBody.scaleX = 0.9;
+		lowerBody.scaleY = 0.9;
+		stage.addChild(lowerBody);
+		head = new lib.hoofd();
+		head.x = 120;
+		head.y = 470;
+		stage.addChild(head);
+		head.onAnimEnd = endOfAnimation;
+		var data = {
+			images:["images/eyes_spritesheet_99x42.png"],
+			frames: {width: 99, height: 42, count: 59, regX: 49, regY: 21},
+			animations: {
+				idle:[0],
+	        blink:[3,9, "idle"],
+	        look:[10,28,"idle"],
+	        die:[29,59,"idle"]
+			}
+		};
+		var eyeSpriteSheet = new createjs.SpriteSheet(data);
+		eyes = new createjs.Sprite(eyeSpriteSheet);
+		eyes.name = "eyes";
+
+		eyes.x = -30;
+		eyes.y = -60;
+		eyes.gotoAndPlay("blink");
+		head.addChild(eyes);
+
+	}
+
+	function onButtonClick(){
+		text = input.value;
+		if(text.length > 8);
+		{
+			text = text.substr(0,8);
+		}
+
+		text = text.toLowerCase();
+
+		if(lijf.length > 0)
+		{
+			stage.removeChild(lijf[0]);
+		}
+	
+		lijf = [];
+		createRupsBody();
+		soundNumber = 0;
+	}
+
+	function createRupsBody(){
+		var headHeight = 490;
+		var lijfUnder;
+		for(var i =text.length-1; i>= 0; i--)
+		{
+			var randomNum = Math.ceil( Math.random() * 5);
+			var lijfDeel = eval("new lib.lijf_" + randomNum + "()");
+
+			var whatToPlay;
+
+			switch(text[i]){
+				case "a" :
+				whatToPlay = 1;
+				break;
+
+				case "b" :
+				whatToPlay = 2;
+				break;
+				case "c" :
+				whatToPlay = 3;
+				break;
+				case "d" :
+				whatToPlay = 4;
+				break;
+				case "e" :
+				whatToPlay = 5;
+				break;
+				case "f" :
+				whatToPlay = 6;
+				break;
+				case "g" :
+				whatToPlay = 7;
+				break;
+				case "h" :
+				whatToPlay = 8;
+				break;
+				case "i" :
+				whatToPlay = 9;
+				break;
+				case "j" :
+				whatToPlay = 10;
+				break;
+				case "k" :
+				whatToPlay = 11;
+				break;
+				case "l" :
+				whatToPlay = 12;
+				break;
+				case "m" :
+				whatToPlay = 13;
+				break;
+				case "n" :
+				whatToPlay = 14;
+				break;
+				case "o" :
+				whatToPlay = 15;
+				break;
+				case "p" :
+				whatToPlay = 16;
+				break;
+				case "q" :
+				whatToPlay = 17;
+				break;
+				case "r" :
+				whatToPlay = 18;
+				break;
+				case "s" :
+				whatToPlay = 19;
+				break;
+				case "t" :
+				whatToPlay = 20;
+				break;
+				case "u" :
+				whatToPlay = 21;
+				break;
+				case "v" :
+				whatToPlay = 22;
+				break;
+				case "w" :
+				whatToPlay = 23;
+				break;
+				case "x" :
+				whatToPlay = 24;
+				break;
+				case "y" :
+				whatToPlay = 25;
+				break;
+				case "z" :
+				whatToPlay = 26;
+				break;
+			}
+
+			if(i == text.length - 1)
+			{
+				lijfDeel.x = 100;
+				lijfDeel.y = 480;
+				lijfDeel.scaleY=lijfDeel.scaleX=0.8;
+				stage.addChild(lijfDeel);
+				lijfUnder = lijfDeel;
+			}
+			
+			else
+			{
+				lijfUnder.addChild(lijfDeel);
+				lijfDeel.y = -60;
+				lijfUnder=lijfDeel;
+			}
+			lijfDeel.gotoAndStop(whatToPlay);
+			lijf.push(lijfDeel);
+		}
+
+		if(text.length > 0)
+		{	
+			stage.removeChild(head);
+			lijfUnder.addChild(head);
+			head.y = -60;
+			head.x = 1;
+		}
+
+		else
+		{
+			stage.addChild(head);
+			head.x = 120;
+			head.y = 470;
+		}
+
+		sayLetter();
+	}
+
+	function playSound(id)
+	{
+		createjs.Sound.play(id);
+	}
+
+	function onTick(){
+		if(new Date().getTime() > nextBlinkTime)
+		{
+			var random = Math.random();
+			if(random < 0.5)
+			{
+				eyes.gotoAndPlay("blink");
+			}
+			else
+			{
+				eyes.gotoAndPlay("look");
+			}
+			nextBlinkTime = new Date().getTime() + 1000 + (Math.random() * 2000);
+		}
+
+		if(lijf.length > 0)
+		{
+			if(lijfCanWiggle)
+			{
+				lijfCanWiggle = false;
+					createjs.Tween.get(lijf[0]).to({rotation:Math.sin(new Date().getTime())*2},1000).call(function(){
+					lijfCanWiggle = true;
+					});
+			}
+
+			for(var i = 0; i < lijf.length; i ++)
+			{	
+				if(i != 0)
+				{
+					lijf[i].rotation = lijf[i].parent.rotation;
+				}
+			}
+
+			head.rotation = head.parent.rotation*3;
+		}
+
+		else
+		{
+			if(lijfCanWiggle)
+			{
+				lijfCanWiggle = false;
+				createjs.Tween.get(head).to({rotation:Math.sin(new Date().getTime())*10},1000).call(function(){
+					lijfCanWiggle = true;
+				});	
+			}
+		}
+
+		stage.update();
+	}
+
+	function sayLetter()
+	{
+		if(soundNumber < text.length)
+		{
+			var letter = text.substr(soundNumber,1);
+			head.gotoAndPlay(letter);
+			playSound("alpha_"+letter);
+		}
+
+		else
+		{
+			soundNumber = 0;
+		}
+	}
+
+	function endOfAnimation()
+		{
+			soundNumber ++;
+			sayLetter();
+		}
+
+</script>
+
+<body onload="preload();">
+	<section id="app">
+
+		<canvas id="canvas" width="300" height="600"></canvas>
+		<section id="controls">
+			<h1>De Spellende Rups</h1>
+			<div>
+				<input type="text" name="firstname" id="firstname" value="createjs">
+
+			<progress id="progbar" max="100" value="50"></progress>
+
+			</div>
+			<button type="submit" id="submit">Zeg mijn naam!</button>
+		</section>
+	</section>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<div id="logSection">
+
+	
+	<h1>{{logsCtrl.logTable.vaknaam}}</h1>
+
+	<div ng-repeat="log in logsCtrl.logTable.logs">
+		
+		<div class="chartBlockFrame">
+			<p>week {{log.week}}</p>
+			<div class="chartBlock" uren="{{log.uren}}"></div>
+			</p>{{log.uren}}</p>
+		</div>
+	
+	</div>
+
+	<h1 ng-hide="logsCtrl.logTable.logs">No logs yet...</h1> 	
+
+</div>

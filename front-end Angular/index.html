@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="schoolUren">
+<head>
+	<meta charset="UTF-8">
+	<title>eindopdracht</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+
+		<div class="col-md-3" id="functionBar">
+		
+			<login-form id="loginForm"></login-form>
+
+			<courses-section id="courseSection"></courses-section>		
+
+
+			<addlog-section></addlog-section>	
+
+			
+
+		</div>
+
+		<div class="col-md-9" id="rightBlok">
+
+			<log-section  ng-show="show && logsCanShow"></log-section>
+
+
+
+			<!-- <h1 ng-hide="show">Give your study life some structure</h1> -->
+
+
+			<div ng-hide="logsCanShow" id="clockDiv">
+
+				<h1 id="splashTitle">Structure Your Study Time</h1>
+
+			<img src="img/vectorClock.png" alt="clock" id="clock">
+
+			<img src="img/secWijzer.png" alt="seconde wijzer" id="secWijzer">
+
+			<img src="img/minWijzer.png" alt="minuten wijzer" id="minWijzer">
+
+			<img src="img/hourWijzer.png" alt="uren wijzer" id="hourWijzer">
+		
+
+			<img src="img/leftButton.png" alt="left button" id="leftButton">
+
+			<img src="img/rightButton.png" alt="right button" id="rightButton">
+			
+
+			<img src="img/midCircle.png" alt="midden circel" id="midCircle">
+			</div>
+
+
+		</div>
+		
+	
+	<script rel="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+	<script rel="text/javascript" src="js/angular.min.js"></script>
+	<script rel="text/javascript" src="js/angular-animate.min.js"></script>
+	<script rel="text/javascript" src="js/userService.js"></script>
+	<script rel="text/javascript" src="js/app.js"></script>
+	<script rel="text/javascript" src="js/chronometer.js"></script>
+</body>
+</html> 

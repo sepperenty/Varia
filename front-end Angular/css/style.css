@@ -1,0 +1,518 @@
+
+
+
+#loginSection{
+	text-align:center;
+}
+
+#loginForm{
+	position:relative; 
+	margin-top: 20px;
+
+}
+
+
+#addLogSection{
+	position: fixed;
+	left: 0;
+	height: 100%;
+
+	
+}
+
+#logSection{
+	margin-top: 74px;
+	margin-left: 20px;
+}
+
+#logSection h1 {
+	margin-top: 0px;
+	margin-bottom: 50px;
+	color:  #3399ff;
+	font-family: Lobster;
+}
+
+
+
+.button{
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: 2px solid white;
+	border-radius: 10px;
+	background-color: #00a8ff;
+	color: white;
+	width: 100px;
+
+}
+
+.inlogInput
+{
+	width: 80%;
+	height: 40px;
+	border-radius: 6px;
+	padding: 10px;
+	border-style: none;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	-webkit-transition: width 0.3s ease;
+	transition: width 0.3s ease;
+}
+
+.inlogInput:focus
+{
+	width: 100%;
+}
+
+.label-text
+{
+	font-size: 20px;
+}
+
+.inlogInput:valid
+{
+	width: 100%;
+}
+
+
+#loginButton, #addButton
+{
+	-webkit-transition: background-color 0.5s, width 0.3s, height 0.3s ease;
+	transition: background-color 0.5s, width 0.3s, height 0.3s ease;
+	width: 100px;
+	height: 40px;
+}
+
+#loginButton:hover, #addButton:hover
+{
+	width: 150px;
+	background-color: white;
+	color: #3399ff;
+
+}
+
+
+
+
+
+
+
+
+#functionBar{
+	background-color: #3399ff;
+	text-align: center;
+	min-height: 1500px;
+	overflow: hidden;
+
+}
+
+.courseButton{
+display: inline-block;
+border-radius: 5px;
+width: 80%;
+padding: 8px;
+color: #fff;
+border: 2px solid #fff;
+text-align: center;
+outline: none;
+text-decoration: none;
+background-color: Transparent;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+margin-top: 30px;
+
+ -webkit-transition: width 0.2s, height 0.2s, background-color 0.2s, color 0.2s; 
+ transition:  width 0.2s, height 0.2s, background-color 0.2s, color 0.2s;  
+}
+
+.courseButton:hover{
+	width: 70%;
+	background-color: white;
+	color: #3399ff;
+}
+
+#rightBlok{
+	
+
+}
+
+.chartBlockFrame{
+	 width: 100%;
+	 color: #333;
+	 float: left;
+}
+
+.chartBlock{
+	height: 40px;
+	background-color: #3399ff;
+	width: 40px;
+	color:white;
+	display: block;
+	margin-bottom: 20px;
+	float: left;
+
+}
+
+.chartBlockFrame p {
+	display: block;
+	float: left;
+}
+
+.chartBlockFrame > :first-child{
+	width: 80px;
+}
+
+.chartBlockFrame > :nth-child(3){
+	margin-left: 10px;
+} 
+
+#splashTitle{
+	font-family: Lobster;
+	font-size: 50px;
+	text-align: center;
+	color: #3399ff;
+	margin-bottom: 50px;
+}
+
+
+/************************CLock*************************/
+
+ #clockDiv{
+ 	position: relative;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	width: 600px;
+ 	height: 1200px;
+ }
+
+
+
+
+#clock{
+	position: absolute;
+
+	
+	
+	width: 600px;
+	height: 600px;
+	
+
+	z-index:10;
+}
+
+#secWijzer{
+	width: 13px;
+	position: absolute;
+
+	transform-origin:center 210px;
+	
+	z-index: 20;
+
+}
+
+#minWijzer{
+	width: 18px;
+	position: absolute;
+
+	transform-origin:center bottom;
+	
+	z-index: 30;
+
+}
+
+#hourWijzer{
+	position: absolute;
+	width: 18px;
+
+	transform-origin:center bottom;
+	z-index: 40;
+}
+
+
+#leftButton{
+	position: absolute;
+	z-index: 50;
+	width: 50px;
+
+	-webkit-transition: left 0.2s, top 0.2s; /* Safari */
+    transition: left 0.2s, top 0.2s;
+
+
+}
+
+
+
+
+#rightButton{
+	position: absolute;
+	z-index: 50;
+	width: 50px;
+
+	-webkit-transition: left 0.2s, top 0.2s; /* Safari */
+    transition: left 0.2s, top 0.2s;
+	
+}
+
+
+
+
+#midCircle{
+	position: absolute;
+	width: 25px;
+	height: 25px;
+
+	z-index: 50;
+}
+
+.welDoneSprite
+{
+	width: 400px;
+	height: 400px;
+	
+	background: url('../img/welDoneSprite.png') left center;
+		
+   /*  transform: translateX(-200%);  */
+  	
+}
+
+.welDoneFrame
+{
+	margin-top: 100px;
+	 transform: translateX(-200%);
+}
+
+.move
+{
+   	
+	 transform: translateX(-200%);
+	-webkit-animation: welDoneWink 3s; 
+}
+
+.wink
+{
+	-webkit-animation: wink 0.5s steps(10); 
+		animation-delay: 1s;
+}
+
+
+
+
+
+@keyframes wink {
+   100% { background-position: -4000px; }
+}
+
+@-webkit-keyframes welDoneWink{
+  
+  0%{
+  	-webkit-transform: translateX(-200%);
+    transform: translateX(-200%);
+  }
+  
+  50% {
+    -webkit-transform: translateX(-30%);
+    transform: translateX(-30%); 
+   /*  background-position: 0px;  */
+  }  
+/* 
+  60%{
+  	   -webkit-transform: translateX(-40%);
+    transform: translateX(-40%);
+    background-position: -4000px; 
+  } */
+
+   100% {
+    -webkit-transform: translateX(-200%);
+    transform: translateX(-200%); 
+  } 
+}
+
+
+
+
+
+
+
+.loadSprite
+{
+
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+position: absolute;
+margin-top: -100px;
+margin-left: -100px;
+  background: url('../img/loadingSprite2.png') left center;
+  animation: play .8s steps(24) infinite;
+}
+
+
+#backButton{
+	
+	float: left;
+	margin-top: 30px;
+	border: 2px solid white;
+	border-radius: 5px;
+	background-color: transparent;
+	
+	color: white;
+	padding: 10px;
+	
+	text-align: center;
+
+	-webkit-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+
+}
+
+#backButton:hover{
+	background-color: white;
+	color: #00a8ff;
+	text-decoration: none;
+
+}
+
+
+#addLogForm label{
+	clear: both;
+	display: block;
+
+}
+
+#addLogSection h1{
+	color: white;
+	font-family: Lobster;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	clear: both;
+	margin-bottom: 30px;
+}
+
+
+
+
+
+
+@keyframes play {
+   100% { background-position: -4800px; }
+}
+
+
+
+/**********animations*****************/
+#addLogSection.ng-hide-remove{
+		-webkit-animation: addLogApear 0.5s;
+}
+
+#addLogSection.ng-hide{
+
+		-webkit-animation: disapear 0.5s;
+}
+
+
+
+
+@-webkit-keyframes addLogApear{
+	0%{
+		  -webkit-transform: translateX(-200%);
+   		 transform: translateX(-200%); 
+	}
+	100%{
+		  -webkit-transform: translateX(0%);
+   		 transform: translateX(0%); 
+	}
+}
+
+
+
+#courseSection{
+	position: absolute;
+	top:0;
+	left: 0;
+}
+
+#loginSection
+{
+	overflow: hidden;
+}
+
+#loginSection.ng-hide {
+	
+	
+	-webkit-animation: disapear 0.5s;
+}
+
+#courses
+{
+	top: 0;
+}
+
+#courses.ng-hide-remove{
+	-webkit-animation: apear 0.5s;
+
+}
+
+#courses.ng-hide{
+	-webkit-animation: coursesDisepear 0.5s;
+}
+
+
+@-webkit-keyframes coursesDisepear{
+  
+  
+  100% {
+    -webkit-transform: translateX(200%);
+    transform: translateX(200%); 
+  }  
+}
+
+
+@-webkit-keyframes disapear{
+  
+  
+  100% {
+    -webkit-transform: translateX(-200%);
+    transform: translateX(-200%); 
+  }  
+}
+
+
+@-webkit-keyframes apear{
+	0%{
+		  -webkit-transform: translateX(200%);
+   		 transform: translateX(200%); 
+	}
+	100%{
+		  -webkit-transform: translateX(0%);
+   		 transform: translateX(0%); 
+	}
+}
+
+.loadSprite
+{
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+
+.loadSprite.ng-hide
+{
+	opacity: 0;
+}
+
+
+
+/********************/
+
+@media screen and (max-width: 820px) {
+    	
+    	#addLogSection{
+    		position: relative;
+    	}
+
+}
